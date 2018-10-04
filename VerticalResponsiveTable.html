@@ -1,0 +1,15 @@
+<table class="c-vertical-responsive-table {{$ctrl.classes.table}}" ng-class="{'c-vertical-responsive-table--transposed' : $ctrl.transposed}">
+    <caption ng-if="$ctrl.caption" class="c-vertical-responsive-table__caption {{$ctrl.classes.caption}}">{{$ctrl.caption}}</caption>
+    <thead class="c-vertical-responsive-table__head" ng-if="$ctrl.withHeaders &&  $ctrl.headers.length">
+        <tr class="c-vertical-responsive-table__head-row {{$ctrl.classes.headRow}}">
+            <th class="c-vertical-responsive-table__head-cell {{$ctrl.classes.headCell}}" ng-repeat="header in $ctrl.headers" scope="col">{{header}}</th>
+        </tr>
+    </thead>
+    <tbody class="c-vertical-responsive-table__body {{$ctrl.classes.body}}">
+        <tr class="c-vertical-responsive-table__body-row{{$ctrl.classes.bodyRow}}" ng-repeat="row in $ctrl.rows">
+            <td class="c-vertical-responsive-table__body-cell {{$ctrl.classes.bodyCell}}" scope="row" ng-repeat="(cellIndex,cell) in row track by cellIndex" data-label="{{$ctrl.headers[cellIndex]}}">
+                {{cell || '-'}}
+            </td>
+        </tr>
+    </tbody>
+</table>
